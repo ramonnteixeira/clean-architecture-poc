@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="/js/lib/jquery.min.js"></script>
+	<script src="/js/lib/angular.min.js"></script>
+	<script src="/js/lib/underscore.js"></script>
+	<script src="/js/lib/ngDraggable.js"></script>
+
+	<link rel="stylesheet" href="/css/default.css" />
+	<link rel="stylesheet" href="/css/jquery.mCustomScrollbar.css" />
+	<script src="/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/js/lib/textarea-autosize.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+	<script src="/js/config/app.js"></script>
+	<script src="/js/config/directives.js"></script>
+	<script src="/js/state/kanban-controller.js"></script>
+</head>
+<body ng-app="KanbanApp">
+
+	<div ng-controller="KanbanCtrl">
+	<dl id="kanban">
+		<dt id="step-{{step.id}}" class="list" ng-repeat="step in steps | orderBy:'id':false" on-last-repeat>
+			<div class="title">
+				<div style="float:right" class="icon icon-plus" ng-hide="step.isFinally" ng-prevent-drag="true" ng-click="addTask(step.id)"></div>
+				{{step.title}} <br />
+				Tasks: {{step.tasks.length}}
+			</div>
+			<div class="list-content" ng-drop="true" ng-drop-success="onDropStep($data,$event,step)" scroll fullsize reservate="150">
+				<div ng-repeat="obj in step.tasks | orderBy:'id':true">
+					
+					<div class="postit {{obj.color}}" ng-drag="true" ng-drag-data="obj">
+						<div>
+							<strong>{{obj.title}}</strong>
+							<div style="float:right" class="icon icon-pencil" ng-prevent-drag="true" ng-click="editTask(obj)"></div>
+						</div>
+						<div>
+							<p style="white-space: pre-line;">{{obj.description}}</p>
+						</div>
+						<button ng-prevent-drag="true" ng-show="step.isFinally" ng-click="removeTask(obj)">Remove</button>
+					</div>
+
+				</div>
+			</div>
+		</dt>
+	</dl>
+
+	<modal-dialog show='modalShown' width='250px' height='200px'>
+		<div class="cadastro">
+			<div>Prioridade: 
+				<select ng-model="domain.color">
+ 					<option ng-repeat="item in priorities" value="{{item.id}}">{{item.value}}</option>
+				</select>
+			</div>
+			<div><input type="text" ng-model="domain.title" placeholder="Title" /></div>
+			<div><textarea ng-model="domain.description" rows="10" placeholder="Description" text-area-auto></textarea></div>
+			<div><button ng-click="saveTask(domain)">Save</button></div>
+		</div>
+	</modal-dialog>
+</div>
+<footer>
+Kanban Beta 0.0.1 Develop by ramon.nteixeira@gmail.com
+</footer>
+</body>
+
+</html>
