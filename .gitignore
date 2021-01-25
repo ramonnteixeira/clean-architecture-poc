@@ -49,3 +49,5 @@ target/
 .idea/
 *.db
 *.iml
+
+.mvn/

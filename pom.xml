@@ -1,43 +1,43 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.ramonnteixeira</groupId>
-    <artifactId>clean-architecture-kanban</artifactId>
-    <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
-    <modules>
-        <module>core</module>
-        <module>spring-config</module>
-        <module>spark-config</module>
-    </modules>
-
-    <properties>
-        <maven.compiler.source>14</maven.compiler.source>
-        <maven.compiler.target>14</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <Specification-Title>Clean Architecture Kanban</Specification-Title>
-        <Specification-Vendor>Ramon Teixeira</Specification-Vendor>
-        <Implementation-Title>Clean Architecture Kanban</Implementation-Title>
-        <Implementation-Vendor>Ramon Teixeira</Implementation-Vendor>
-        <main.class></main.class>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.16</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.sql2o</groupId>
-            <artifactId>sql2o</artifactId>
-            <version>1.5.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.185</version>
-        </dependency>
-    </dependencies>
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.ramonnteixeira</groupId>
+  <artifactId>clean-architecture-kanban</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>core</module>
+    <module>spring-config</module>
+    <module>spark-config</module>
+    <module>quarkus-config</module>
+  </modules>
+  <properties>
+    <Implementation-Title>Clean Architecture Kanban</Implementation-Title>
+    <Implementation-Vendor>Ramon Teixeira</Implementation-Vendor>
+    <Specification-Title>Clean Architecture Kanban</Specification-Title>
+    <Specification-Vendor>Ramon Teixeira</Specification-Vendor>
+    <main.class></main.class>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.16</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.sql2o</groupId>
+      <artifactId>sql2o</artifactId>
+      <version>1.5.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.185</version>
+    </dependency>
+  </dependencies>
 </project>

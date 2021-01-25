@@ -24,4 +24,7 @@ public class Task {
 		stepId = task.stepId;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
 }
